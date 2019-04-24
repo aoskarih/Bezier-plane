@@ -1,9 +1,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <iostream>
 #include <cmath>
 #include <misc.h>
 #include <vector>
+#include <string>
 #include <mandelbrot.h>
 
 double iter_func(double re, double im, int itr) {
@@ -56,6 +58,6 @@ std::vector<unsigned char> calc_pixels(double cx, double cy, double side) {
             }
         }
     }
-    printf("asdf\n");
+    printf("%.14f\n",side);
     return pixels;
 }

@@ -25,7 +25,7 @@ SDL_Texture* texture;
 bool screen = true;
 bool fullscreen = false;
 
-double s = 2.0;
+double s = 4.0;
 
 
 bool init() {
