@@ -30,12 +30,10 @@ TTF_Font* sans = NULL;
 bool screen = true;
 bool fullscreen = true;
 
-int SCREEN_WIDTH = 1280;
-int SCREEN_HEIGHT = 720;
-
-
 color c[16];
 std::map<std::string, color> col;
+
+
 
 //Game variables
 Player p (0, 0);
@@ -44,7 +42,6 @@ Player p (0, 0);
 bool init() {
     bool success = true;
 
-    //Game init
     c[0].r = 29;    c[0].g = 43;    c[0].b = 83;    c[0].a = 255;
     c[1].r = 126;   c[1].g = 37;    c[1].b = 83;    c[1].a = 255;
     c[2].r = 0;     c[2].g = 135;   c[2].b = 81;    c[2].a = 255;
@@ -188,6 +185,16 @@ void render(double dt) {
         render_text_box(renderer, sans, 20, ly, ay, color_to_SDL(col["black"]), color_to_SDL(col["white"]), 1, color_to_SDL(col["black"]), true);
     }
 
+    short int b_x[4] = {-1,-1,1,2};
+    short int b_y[4] = {0,1,1,0};
+    for(int i = 0; i < 4; i++) {
+        b_x[i] = 100*b_x[i]+SCREEN_WIDTH/2;
+        b_y[i] = -100*b_y[i]+SCREEN_HEIGHT/2;
+
+    }
+
+    bezierRGBA(renderer, b_x, b_y, 4, 100, 0, 0, 0, 255);
+
     //Position
 
 
@@ -203,8 +210,8 @@ void render(double dt) {
 }
 
 void update(double dt) {
-    p.x += 60*dt;
-    p.y += 60*dt;
+    //p.x += 60*dt;
+    //p.y += 60*dt;
 }
 
 int main() {
